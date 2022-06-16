@@ -1,24 +1,31 @@
-let computerRoll = Math.floor(Math.random() * 3);
-console.log(computerRoll);
-
-let computerSelection = undefined;
-
-function computerConvert() {
-    if (computerRoll === 0) {
-        computerSelection = "rock";
-    } else if (computerRoll === 1) {
-        computerSelection = "paper"
-    } else if (computerRoll === 2) {
-        computerSelection = "scissors"
-    } return computerSelection;
+function playerTurn() {
+    let playerSelection = prompt("Enter rock, paper, or scissors").toLowerCase();
+    console.log(playerSelection);
+    return playerSelection;
 }
 
-computerConvert()
-console.log(computerSelection)
+function computerTurn() {
+    let computerSelection = undefined;
 
-let playerSelection = prompt("Enter rock, paper, or scissors")
+    let computerRoll = Math.floor(Math.random() * 3);
+
+    computerConvert();
+
+    function computerConvert() {
+        if (computerRoll === 0) {
+            computerSelection = "rock";
+        } else if (computerRoll === 1) {
+            computerSelection = "paper"
+        } else if (computerRoll === 2) {
+            computerSelection = "scissors"
+        }
+    }
+    return computerSelection;
+
+}
 
 function playRound(playerSelection, computerSelection) {
+
     if (playerSelection === "rock" && computerSelection === "scissors") {
         return "You win! Rock beats scissors.";
     } else if (
@@ -29,7 +36,8 @@ function playRound(playerSelection, computerSelection) {
         playerSelection === "scissors" && computerSelection === "paper"
     ) {
         return "You win! Scissors beats paper.";
-    } else if (playerSelection === "scissors" && computerSelection === "rock"
+    } else if (
+        playerSelection === "scissors" && computerSelection === "rock"
     ) {
         return "You lose! Rock beats scissors.";
     } else if (
@@ -46,7 +54,24 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-console.log(playRound())
+console.log(playRound(playerTurn(), computerTurn()));
+
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        console.log(playRound(playerTurn(), computerTurn()));
+    }
+    
+}
+
+console.log(game())
+// computerTurn();
+// console.log(computerSelection);
+// playerTurn();
+// console.log(playerSelection);
+// playRound(computerSelection, playerSelection);
+
+
 //>>>>Simplifed Version
 // switch(playerSelection, computerSelection) {
 //     case playerSelection === "rock" && computerSelection === "scissors":
