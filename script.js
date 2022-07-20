@@ -31,8 +31,36 @@ btns.forEach((btn) => {
 
         if (playerCount === 5 && computerCount < 5) {
             p.textContent = "You win the match!";
+
+            const replay = document.createElement('button');
+            replay.textContent = 'Play again?';
+            container.appendChild(replay);
+
+            replay.addEventListener ('click', () => {
+                p.textContent = 'Choose an item to start!';
+                playerCount = 0;
+                computerCount = 0;
+                playerScore.textContent = 'Player Score: ' + 0;
+                computerScore.textContent = 'Computer Score: ' + 0;
+                container.removeChild(replay);
+            });
+            
         } else if (computerCount === 5 && playerCount < 5) {
             p.textContent = "Computer wins the match!";
+
+            const replay = document.createElement('button');
+            replay.textContent = 'Play again?';
+            container.appendChild(replay);
+
+            replay.addEventListener ('click', () => {
+                p.textContent = 'Choose an item to start!';
+                playerCount = 0;
+                computerCount = 0;
+                playerScore.textContent = 'Player Score: ' + 0;
+                computerScore.textContent = 'Computer Score: ' + 0;
+                container.removeChild(replay);
+            });
+            
         }
 
     })
