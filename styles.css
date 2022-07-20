@@ -27,6 +27,14 @@ p {
     font-weight: 700;
 }
 
+.playerScore {
+    padding-right: 15px;
+}
+
+.computerScore {
+    padding-left: 15px;
+}
+
 #text-container {
     background-color: rgba(6, 18, 29, 0.4);
     padding: 4%;

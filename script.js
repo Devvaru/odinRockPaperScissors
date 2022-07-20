@@ -1,3 +1,6 @@
+let playerCount = 0;
+let computerCount = 0;
+
 const btns = document.querySelectorAll('button');
 const div = document.querySelector('div');
 const container = document.querySelector('#text-container')
@@ -7,20 +10,17 @@ p.classList.add('p');
 
 const playerScore = document.createElement('playerScore');
 playerScore.classList.add('playerScore')
-playerScore.textContent = 'Player Score:'
+playerScore.textContent = 'Player Score: 0'
 container.appendChild(playerScore);
 
 const computerScore = document.createElement('computerScore');
 computerScore.classList.add('computerScore')
-computerScore.textContent = 'Computer Score:'
+computerScore.textContent = 'Computer Score: 0'
 container.appendChild(computerScore);
 
 p.textContent = 'Choose an item to start!';
 container.appendChild(p);
 
-
-let playerCount = 0;
-let computerCount = 0;
 
 btns.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -64,6 +64,9 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock" && computerSelection === "scissors") {
         playerCount += 1;
         console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
+
+        playerScore.textContent = 'Player Score: ' + playerCount;
+        computerScore.textContent = 'Computer Score: ' + computerCount;
         p.textContent = "You win! Rock beats scissors";
         
     } else if (
@@ -71,33 +74,51 @@ function playRound(playerSelection, computerSelection) {
     ) {
         playerCount += 1;
         console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
+
+        playerScore.textContent = 'Player Score: ' + playerCount;
+        computerScore.textContent = 'Computer Score: ' + computerCount;
         p.textContent = "You win! Paper beats rock.";
     } else if (
         playerSelection === "scissors" && computerSelection === "paper"
     ) {
         playerCount += 1;
         console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
+
+        playerScore.textContent = 'Player Score: ' + playerCount;
+        computerScore.textContent = 'Computer Score: ' + computerCount;
         p.textContent = "You win! Scissors beats paper.";
     } else if (
         playerSelection === "scissors" && computerSelection === "rock"
     ) {
         computerCount += 1;
         console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
+
+        playerScore.textContent = 'Player Score: ' + playerCount;
+        computerScore.textContent = 'Computer Score: ' + computerCount;
         p.textContent = "You lose! Rock beats scissors.";
     } else if (
         playerSelection === "rock" && computerSelection === "paper"
     ) {
         computerCount += 1;
         console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
+
+        playerScore.textContent = 'Player Score: ' + playerCount;
+        computerScore.textContent = 'Computer Score: ' + computerCount;
         p.textContent = "You lose! Paper beats rock.";
     } else if (
         playerSelection === "paper" && computerSelection === 'scissors'
     ) {
         computerCount += 1;
         console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
+
+        playerScore.textContent = 'Player Score: ' + playerCount;
+        computerScore.textContent = 'Computer Score: ' + computerCount;
         p.textContent = "You lose! Scissors beats paper.";
     } else {
         console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
+
+        playerScore.textContent = 'Player Score: ' + playerCount;
+        computerScore.textContent = 'Computer Score: ' + computerCount;
         p.textContent = "It's a tie!";
     }
 
