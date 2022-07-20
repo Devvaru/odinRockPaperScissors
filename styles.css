@@ -1,0 +1,23 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: url(Images/rps-bg.png);
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#rock, #paper, #scissors {
+    /* max-width: 200px; */
+    max-height: 150px;
+}
