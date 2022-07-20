@@ -14,8 +14,17 @@ body {
 p {
     color: #FFF9E4;
     font-size: 20px;
+    text-align: center;
+    margin: 4% 0px 0px 0px;
+}
+
+.playerScore, .computerScore {
+    color: #FFF9E4;
+    font-size: 20px;
     text-align: justify;
     margin: 0px;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
 #text-container {

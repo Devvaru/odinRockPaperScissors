@@ -4,6 +4,17 @@ const container = document.querySelector('#text-container')
 
 const p = document.createElement('p');
 p.classList.add('p');
+
+const playerScore = document.createElement('playerScore');
+playerScore.classList.add('playerScore')
+playerScore.textContent = 'Player Score:'
+container.appendChild(playerScore);
+
+const computerScore = document.createElement('computerScore');
+computerScore.classList.add('computerScore')
+computerScore.textContent = 'Computer Score:'
+container.appendChild(computerScore);
+
 p.textContent = 'Choose an item to start!';
 container.appendChild(p);
 
