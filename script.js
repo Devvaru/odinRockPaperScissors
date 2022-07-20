@@ -30,9 +30,9 @@ btns.forEach((btn) => {
         playRound(playerSelection, computerTurn());
 
         if (playerCount === 5 && computerCount < 5) {
-            console.log("You win the match!");
+            p.textContent = "You win the match!";
         } else if (computerCount === 5 && playerCount < 5) {
-            console.log("Computer wins the match!");
+            p.textContent = "Computer wins the match!";
         }
 
     })
