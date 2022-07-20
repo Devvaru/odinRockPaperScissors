@@ -11,11 +11,32 @@ body {
     height: 100vh;
 }
 
+.section_one {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.section_two {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
 p {
     color: #FFF9E4;
     font-size: 20px;
     text-align: center;
     margin: 25px 0px 0px 0px;
+}
+
+@media (max-width: 412px) {
+    p {
+        font-size: 17px;
+        margin-top: 15px;
+    }
 }
 
 .playerScore, .computerScore {
@@ -27,6 +48,12 @@ p {
     font-weight: 700;
 }
 
+@media (max-width: 412px) {
+    .playerScore, .computerScore {
+       font-size: 17px;;
+    }
+}
+
 .playerScore {
     padding-right: 15px;
 }
@@ -35,12 +62,28 @@ p {
     padding-left: 15px;
 }
 
+@media (max-width: 412px) {
+    .playerScore, .computerScore {
+       display: block;
+       padding: 0px;
+       text-align: center;
+    }
+}
+
 #text-container {
     background-color: rgba(6, 18, 29, 0.4);
     padding: 50px;
     margin: 3%;
     max-width: 70%;
     text-align: center;
+}
+
+@media (max-width: 412px) {
+    #text-container {
+       padding: 25px; 
+       width: 90%;
+       margin: 20px 0px 0px 0px;
+    }
 }
 
 button {
@@ -65,27 +108,46 @@ button:hover {
 #icon-container {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    width: 40%;
+    justify-content: space-between;
+    max-width: 70%;
+    margin: 0px;
+    padding: 0px;
+}
+
+@media (max-width: 810px) {
+    #icon-container {
+        min-width: 65%;
+    }
+}
+
+@media (max-width: 412px) {
+    #icon-container {
+        min-width: 80%;
+    }
 }
 
 .rock,
 .paper,
 .scissors {
-    padding: 4%;
-    transition: .2s ease-in;
+    transition: .3s ease-in;
     background-color: transparent;
     border: none;
+    padding: 0px;
+}
+
+.paper {
+    padding: 0% 5% 0% 5%;
 }
 
 #rock,
 #paper,
 #scissors {
     max-height: 150px;
+    width: 100%;
 }
 
 .rock:hover, .paper:hover, .scissors:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
     background-color: transparent;
 }
 

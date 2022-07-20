@@ -45,6 +45,7 @@ btns.forEach((btn) => {
                 container.removeChild(replay);
             });
             
+
         } else if (computerCount === 5 && playerCount < 5) {
             p.textContent = "Computer wins the match!";
 
