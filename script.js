@@ -1,100 +1,110 @@
-function game() {
+const btns = document.querySelectorAll('button');
+const div = document.querySelector('div');
+const container = document.querySelector('#text-container')
 
-    const btns = document.querySelectorAll('button');
-
-    let playerCount = 0;
-    let computerCount = 0;
-
-    btns.forEach((btn) => {
-        btn.addEventListener('click', () => {
-
-            playerSelection = btn.classList.value;
-            console.log(btn.classList.value)
-
-            function computerTurn() {
-                let computerSelection = undefined;
-
-                let computerRoll = Math.floor(Math.random() * 3);
-
-                computerConvert();
-
-                function computerConvert() {
-                    if (computerRoll === 0) {
-                        computerSelection = "rock";
-                    } else if (computerRoll === 1) {
-                        computerSelection = "paper"
-                    } else if (computerRoll === 2) {
-                        computerSelection = "scissors"
-                    }
-                }
-                // console.log(computerSelection);
-                return computerSelection;
-            }
-
-            function playRound(playerSelection, computerSelection) {
-
-                if (playerSelection === "rock" && computerSelection === "scissors") {
-                    playerCount += 1;
-                    console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
-                    return "You win! Rock beats scissors.";
-
-                } else if (
-                    playerSelection === "paper" && computerSelection === "rock"
-                ) {
-                    playerCount += 1;
-                    console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
-                    return "You win! Paper beats rock.";
-                } else if (
-                    playerSelection === "scissors" && computerSelection === "paper"
-                ) {
-                    playerCount += 1;
-                    console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
-                    return "You win! Scissors beats paper.";
-                } else if (
-                    playerSelection === "scissors" && computerSelection === "rock"
-                ) {
-                    computerCount += 1;
-                    console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
-                    return "You lose! Rock beats scissors.";
-                } else if (
-                    playerSelection === "rock" && computerSelection === "paper"
-                ) {
-                    computerCount += 1;
-                    console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
-                    return "You lose! Paper beats rock.";
-                } else if (
-                    playerSelection === "paper" && computerSelection === 'scissors'
-                ) {
-                    computerCount += 1;
-                    console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
-                    return "You lose! Scissors beats paper.";
-                } else {
-                    console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
-                    return "It's a tie!";
-                }
-
-            };
-            playRound(playerSelection, computerTurn());
+const p = document.createElement('p');
+p.classList.add('p');
+p.textContent = 'Choose an item to start!';
+container.appendChild(p);
 
 
-        })
+let playerCount = 0;
+let computerCount = 0;
+
+btns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+
+        playerSelection = btn.classList.value;
+        console.log(btn.classList.value)
+        playRound(playerSelection, computerTurn());
+
+        if (playerCount === 5 && computerCount < 5) {
+            console.log("You win the match!");
+        } else if (computerCount === 5 && playerCount < 5) {
+            console.log("Computer wins the match!");
+        }
+
     })
+})
 
-    for (let i = 0; i < 5; i++) {
-        
-        // console.log(playRound(playerSelection, computerTurn()));
-    }
+function computerTurn() {
+    let computerSelection = undefined;
 
-    if (playerCount > computerCount) {
-        console.log("You win the match!");
-    } else if (playerCount < computerCount) {
-        console.log("Computer wins the match!");
-    } else {
-        console.log("No winners, it's a tie!");
+    let computerRoll = Math.floor(Math.random() * 3);
+
+    computerConvert();
+
+    function computerConvert() {
+        if (computerRoll === 0) {
+            computerSelection = "rock";
+        } else if (computerRoll === 1) {
+            computerSelection = "paper"
+        } else if (computerRoll === 2) {
+            computerSelection = "scissors"
+        }
     }
+        console.log(computerSelection);
+    return computerSelection;
 }
 
-game();
+
+function playRound(playerSelection, computerSelection) {
+
+    if (playerSelection === "rock" && computerSelection === "scissors") {
+        playerCount += 1;
+        console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
+        p.textContent = "You win! Rock beats scissors";
+        
+    } else if (
+        playerSelection === "paper" && computerSelection === "rock"
+    ) {
+        playerCount += 1;
+        console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
+        p.textContent = "You win! Paper beats rock.";
+    } else if (
+        playerSelection === "scissors" && computerSelection === "paper"
+    ) {
+        playerCount += 1;
+        console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
+        p.textContent = "You win! Scissors beats paper.";
+    } else if (
+        playerSelection === "scissors" && computerSelection === "rock"
+    ) {
+        computerCount += 1;
+        console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
+        p.textContent = "You lose! Rock beats scissors.";
+    } else if (
+        playerSelection === "rock" && computerSelection === "paper"
+    ) {
+        computerCount += 1;
+        console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
+        p.textContent = "You lose! Paper beats rock.";
+    } else if (
+        playerSelection === "paper" && computerSelection === 'scissors'
+    ) {
+        computerCount += 1;
+        console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
+        p.textContent = "You lose! Scissors beats paper.";
+    } else {
+        console.log("Your score is " + playerCount + ". Computer's score is " + computerCount + ".");
+        p.textContent = "It's a tie!";
+    }
+
+};
+
+    // for (let i = 0; i < 5; i++) {
+        
+    //     // console.log(playRound(playerSelection, computerTurn()));
+    // }
+
+    // if (playerCount > computerCount) {
+    //     console.log("You win the match!");
+    // } else if (playerCount < computerCount) {
+    //     console.log("Computer wins the match!");
+    // } else {
+    //     console.log("No winners, it's a tie!");
+    // }
+
 //Prompt for playerSelection - outdated
 
 // function playerTurn() {
