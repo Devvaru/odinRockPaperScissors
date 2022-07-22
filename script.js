@@ -5,6 +5,8 @@ let computerCount = 0;
 const btns = document.querySelectorAll('button');
 const div = document.querySelector('div');
 const container = document.querySelector('#text-container')
+const score_container = document.querySelector('#score-container')
+container.appendChild(score_container);
 
 const p = document.createElement('p');
 p.classList.add('p');
@@ -13,16 +15,35 @@ p.classList.add('p');
 const playerScore = document.createElement('playerScore');
 playerScore.classList.add('playerScore')
 playerScore.textContent = 'Player Score: 0'
-container.appendChild(playerScore);
+score_container.appendChild(playerScore);
 
 const computerScore = document.createElement('computerScore');
 computerScore.classList.add('computerScore')
 computerScore.textContent = 'Computer Score: 0'
-container.appendChild(computerScore);
+score_container.appendChild(computerScore);
 
 p.textContent = 'Choose an item to start!';
 container.appendChild(p);
 
+//Adds replay button, hidden by default in css
+const replay = document.createElement('button');
+replay.textContent = 'Play again?';
+container.appendChild(replay);
+
+//Event listener for replay button
+replay.addEventListener ('click', () => {
+    p.textContent = 'Choose an item to start!';
+    playerCount = 0;
+    computerCount = 0;
+    playerScore.textContent = 'Player Score: ' + 0;
+    computerScore.textContent = 'Computer Score: ' + 0;
+    container.removeChild(replay);
+});
+
+//Shows replay button when conditions met
+function show() {
+    document.getElementsByTagName('button')[3].style.display = 'flex';
+}
 
 //Assigns playerSelection from button and plays round on button click
 btns.forEach((btn) => {
@@ -34,37 +55,13 @@ btns.forEach((btn) => {
 
         if (playerCount === 5 && computerCount < 5) {
             p.textContent = "You win the match!";
-
-            const replay = document.createElement('button');
-            replay.textContent = 'Play again?';
-            container.appendChild(replay);
-
-            replay.addEventListener ('click', () => {
-                p.textContent = 'Choose an item to start!';
-                playerCount = 0;
-                computerCount = 0;
-                playerScore.textContent = 'Player Score: ' + 0;
-                computerScore.textContent = 'Computer Score: ' + 0;
-                container.removeChild(replay);
-            });
             
-
+            show();
+            
         } else if (computerCount === 5 && playerCount < 5) {
             p.textContent = "Computer wins the match!";
-
-            const replay = document.createElement('button');
-            replay.textContent = 'Play again?';
-            container.appendChild(replay);
-
-            replay.addEventListener ('click', () => {
-                p.textContent = 'Choose an item to start!';
-                playerCount = 0;
-                computerCount = 0;
-                playerScore.textContent = 'Player Score: ' + 0;
-                computerScore.textContent = 'Computer Score: ' + 0;
-                container.removeChild(replay);
-            });
             
+            show();
         }
 
     })
@@ -87,7 +84,7 @@ function computerTurn() {
             computerSelection = "scissors"
         }
     }
-        console.log(computerSelection);
+        // console.log(computerSelection);
     return computerSelection;
 }
 
