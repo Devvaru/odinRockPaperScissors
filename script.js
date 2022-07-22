@@ -1,6 +1,7 @@
 let playerCount = 0;
 let computerCount = 0;
 
+//Links html elements to js
 const btns = document.querySelectorAll('button');
 const div = document.querySelector('div');
 const container = document.querySelector('#text-container')
@@ -8,6 +9,7 @@ const container = document.querySelector('#text-container')
 const p = document.createElement('p');
 p.classList.add('p');
 
+//Adds playerScore and computerScore to DOM
 const playerScore = document.createElement('playerScore');
 playerScore.classList.add('playerScore')
 playerScore.textContent = 'Player Score: 0'
@@ -22,6 +24,7 @@ p.textContent = 'Choose an item to start!';
 container.appendChild(p);
 
 
+//Assigns playerSelection from button and plays round on button click
 btns.forEach((btn) => {
     btn.addEventListener('click', () => {
 
@@ -67,6 +70,7 @@ btns.forEach((btn) => {
     })
 })
 
+//Randomly chooses an item for computer's turn
 function computerTurn() {
     let computerSelection = undefined;
 
@@ -87,7 +91,7 @@ function computerTurn() {
     return computerSelection;
 }
 
-
+//Adds to playerScore and computerScore and displays message
 function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === "rock" && computerSelection === "scissors") {
