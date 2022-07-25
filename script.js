@@ -37,7 +37,7 @@ replay.addEventListener ('click', () => {
     computerCount = 0;
     playerScore.textContent = 'Player Score: ' + 0;
     computerScore.textContent = 'Computer Score: ' + 0;
-    container.removeChild(replay);
+    hide();
 });
 
 //Shows replay button when conditions met
@@ -45,7 +45,16 @@ function show() {
     document.getElementsByTagName('button')[3].style.display = 'flex';
 }
 
-//Assigns playerSelection from button and plays round on button click
+//Hides replay button when conditions met
+function hide() {
+    document.getElementsByTagName('button')[3].style.display = 'none';
+}
+
+let playing = true;
+console.log(playing);
+
+
+//Assigns layerSelection from button and plays round on button click
 btns.forEach((btn) => {
     btn.addEventListener('click', () => {
 
@@ -55,17 +64,27 @@ btns.forEach((btn) => {
 
         if (playerCount === 5 && computerCount < 5) {
             p.textContent = "You win the match!";
-            
+        
             show();
+            playing = false;
+            console.log(playing);
             
         } else if (computerCount === 5 && playerCount < 5) {
             p.textContent = "Computer wins the match!";
             
             show();
+            playing = false;
+            console.log(playing);
         }
 
     })
 })
+
+if (playing = false)  {
+    btns.forEach((btn) => {
+        btn.removeEventListener('click')
+    });
+}
 
 //Randomly chooses an item for computer's turn
 function computerTurn() {
