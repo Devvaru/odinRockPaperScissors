@@ -78,7 +78,7 @@ btns.forEach((btn) => {
             
             show();
         
-        }console.log(playing);
+        }
 
         
     })

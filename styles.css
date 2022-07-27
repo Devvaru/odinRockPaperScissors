@@ -11,6 +11,30 @@ body {
     height: 100vh;
 }
 
+.section_one {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 60vh;
+    margin: 0px;
+}
+
+.section_two {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 40vh;
+    margin: 0px;
+}
+
+@media (max-width: 430px) {
+    .section_two {
+    width: 100vw;
+    }
+}
+
 h1 {
     font-size: 54px;
     font-family: 'Exo', sans-serif;
@@ -85,7 +109,7 @@ p {
     background-color: rgba(6, 18, 29, 0.4);
     padding: 50px;
     margin: 0px;
-    max-width: 70%;
+    max-width: 100%;
     text-align: center;
     display: flex;
     flex-flow: column;
@@ -95,7 +119,7 @@ p {
 @media (max-width: 430px) {
     #text-container {
        padding: 25px; 
-       width: 90%;
+       width: 75%;
     }
 }
 
@@ -123,14 +147,14 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 70%;
+    max-width: 100%;
     margin: 75px 0px 75px 0px;
     padding: 0px;
 }
 
 @media (max-width: 430px) {
     #icon-container {
-        min-width: 90%;
+        max-width: 86%;
         margin: 35px 0px 35px 0px;
     }
 }
@@ -153,7 +177,7 @@ button:hover {
 
 @media (max-width: 430px) {
     .paper {
-        padding: 0% 6% 0% 6%;
+        padding: 0% 7% 0% 7%;
     }
     
 }
