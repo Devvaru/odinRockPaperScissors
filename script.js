@@ -1,6 +1,8 @@
 let playerCount = 0;
 let computerCount = 0;
 
+
+const body = document.querySelectorAll('body');
 //Links html elements to js
 const btns = document.querySelectorAll('button');
 const div = document.querySelector('div');
@@ -37,32 +39,39 @@ replay.addEventListener ('click', () => {
     computerCount = 0;
     playerScore.textContent = 'Player Score: ' + 0;
     computerScore.textContent = 'Computer Score: ' + 0;
+    playing = true;
     hide();
 });
 
 //Shows replay button when conditions met
 function show() {
     document.getElementsByTagName('button')[3].style.display = 'flex';
+    btns.forEach((btn) => {
+        btn.setAttribute('disabled', true);
+    })
 }
 
 //Hides replay button when conditions met
 function hide() {
     document.getElementsByTagName('button')[3].style.display = 'none';
+    btns.forEach((btn) => {
+        btn.removeAttribute('disabled', true);
+    })
 }
 
 let playing = true;
 console.log(playing);
 
-
 //Assigns layerSelection from button and plays round on button click
 btns.forEach((btn) => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', function game() {
 
         playerSelection = btn.classList.value;
         console.log(btn.classList.value)
         playRound(playerSelection, computerTurn());
 
-        if (playerCount === 5 && computerCount < 5) {
+    
+         if (playerCount === 5 && computerCount < 5) {
             p.textContent = "You win the match!";
         
             show();
@@ -75,16 +84,26 @@ btns.forEach((btn) => {
             show();
             playing = false;
             console.log(playing);
-        }
+        }console.log(playing);
 
+        
     })
 })
 
-if (playing = false)  {
-    btns.forEach((btn) => {
-        btn.removeEventListener('click')
-    });
-}
+// document.body.addEventListener('click', () => {
+//     if (playing == false) {
+//         stopListening();
+//     }
+
+// })
+
+// function stopListening() {
+//     btns.forEach((btn) => {
+//         btn.removeEventListener('click', game);
+//         playing = true;
+//     });
+// }
+
 
 //Randomly chooses an item for computer's turn
 function computerTurn() {
