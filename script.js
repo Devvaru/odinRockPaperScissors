@@ -59,9 +59,6 @@ function hide() {
     })
 }
 
-let playing = true;
-console.log(playing);
-
 //Assigns layerSelection from button and plays round on button click
 btns.forEach((btn) => {
     btn.addEventListener('click', function game() {
@@ -75,35 +72,17 @@ btns.forEach((btn) => {
             p.textContent = "You win the match!";
         
             show();
-            playing = false;
-            console.log(playing);
             
         } else if (computerCount === 5 && playerCount < 5) {
             p.textContent = "Computer wins the match!";
             
             show();
-            playing = false;
-            console.log(playing);
+        
         }console.log(playing);
 
         
     })
 })
-
-// document.body.addEventListener('click', () => {
-//     if (playing == false) {
-//         stopListening();
-//     }
-
-// })
-
-// function stopListening() {
-//     btns.forEach((btn) => {
-//         btn.removeEventListener('click', game);
-//         playing = true;
-//     });
-// }
-
 
 //Randomly chooses an item for computer's turn
 function computerTurn() {
@@ -191,43 +170,3 @@ function playRound(playerSelection, computerSelection) {
     }
 
 };
-
-    // for (let i = 0; i < 5; i++) {
-        
-    //     // console.log(playRound(playerSelection, computerTurn()));
-    // }
-
-    // if (playerCount > computerCount) {
-    //     console.log("You win the match!");
-    // } else if (playerCount < computerCount) {
-    //     console.log("Computer wins the match!");
-    // } else {
-    //     console.log("No winners, it's a tie!");
-    // }
-
-//Prompt for playerSelection - outdated
-
-// function playerTurn() {
-// let playerSelection = prompt("Enter rock, paper, or scissors").toLowerCase();
-// console.log(playerSelection);
-// return playerSelection;
-// }
-
-
-
-
-/////////////////////////////////////////
-//>>>>Simplified Version for playRound()
-// 
-// switch(playerSelection, computerSelection) {
-//     case playerSelection === "rock" && computerSelection === "scissors":
-//     case playerSelection === "paper" && computerSelection === "rock":
-//     case playerSelection === "scissors" && computerSelection === "paper":
-//         return "Player is the winner!";
-//         break;
-//     case playerSelection === computerSelection:
-//         return "It's a tie!";
-//         break;
-//     default:
-//         return "Computer is the winner!";
-// }
