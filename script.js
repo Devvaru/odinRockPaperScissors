@@ -1,15 +1,12 @@
 let playerCount = 0;
 let computerCount = 0;
 
-
 const body = document.querySelectorAll('body');
-//Links html elements to js
 const btns = document.querySelectorAll('button');
 const div = document.querySelector('div');
 const container = document.querySelector('#text-container')
 const score_container = document.querySelector('#score-container')
 container.appendChild(score_container);
-
 const p = document.createElement('p');
 p.classList.add('p');
 
@@ -67,7 +64,6 @@ btns.forEach((btn) => {
         console.log(btn.classList.value)
         playRound(playerSelection, computerTurn());
 
-    
          if (playerCount === 5 && computerCount < 5) {
             p.textContent = "You win the match!";
         
@@ -79,8 +75,6 @@ btns.forEach((btn) => {
             show();
         
         }
-
-        
     })
 })
 
