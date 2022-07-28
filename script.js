@@ -4,21 +4,21 @@ let computerCount = 0;
 const body = document.querySelectorAll('body');
 const btns = document.querySelectorAll('button');
 const div = document.querySelector('div');
-const container = document.querySelector('#text-container')
-const score_container = document.querySelector('#score-container')
+const container = document.querySelector('#text-container');
+const score_container = document.querySelector('#score-container');
 container.appendChild(score_container);
 const p = document.createElement('p');
 p.classList.add('p');
 
 //Adds playerScore and computerScore to DOM
 const playerScore = document.createElement('playerScore');
-playerScore.classList.add('playerScore')
-playerScore.textContent = 'Player Score: 0'
+playerScore.classList.add('playerScore');
+playerScore.textContent = 'Player Score: 0';
 score_container.appendChild(playerScore);
 
 const computerScore = document.createElement('computerScore');
-computerScore.classList.add('computerScore')
-computerScore.textContent = 'Computer Score: 0'
+computerScore.classList.add('computerScore');
+computerScore.textContent = 'Computer Score: 0';
 score_container.appendChild(computerScore);
 
 p.textContent = 'Choose an item to start!';
@@ -45,23 +45,23 @@ function show() {
     document.getElementsByTagName('button')[3].style.display = 'flex';
     btns.forEach((btn) => {
         btn.setAttribute('disabled', true);
-    })
-}
+    });
+};
 
 //Hides replay button when conditions met
 function hide() {
     document.getElementsByTagName('button')[3].style.display = 'none';
     btns.forEach((btn) => {
         btn.removeAttribute('disabled', true);
-    })
-}
+    });
+};
 
 //Assigns layerSelection from button and plays round on button click
 btns.forEach((btn) => {
     btn.addEventListener('click', function game() {
 
         playerSelection = btn.classList.value;
-        console.log(btn.classList.value)
+        console.log(btn.classList.value);
         playRound(playerSelection, computerTurn());
 
          if (playerCount === 5 && computerCount < 5) {
@@ -90,9 +90,9 @@ function computerTurn() {
         if (computerRoll === 0) {
             computerSelection = "rock";
         } else if (computerRoll === 1) {
-            computerSelection = "paper"
+            computerSelection = "paper";
         } else if (computerRoll === 2) {
-            computerSelection = "scissors"
+            computerSelection = "scissors";
         }
     }
         // console.log(computerSelection);
