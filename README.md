@@ -1,2 +1,2 @@
 # odinRockPaperScissors
-<a href="https://syeraru.github.io/odinRockPaperScissors/">Live Demo</a>
+<a href="https://devvaru.github.io/odinRockPaperScissors/">Live Demo</a>
